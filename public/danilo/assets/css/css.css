@@ -1,0 +1,8 @@
+body {overflow-y:scroll;}
+.van-content {padding:10px 0 20px 0;}
+.van_value{position: relative;}
+.van_value:before, .van_value:after {position: absolute;  left:0; color:#000;}
+.van_value:before {content:'+'; bottom:-20px; }
+.van_value:after {content: attr(cf); bottom:-20px;  text-align:center;width: 100%;}
+
+.van_value.first:before {content:'';}

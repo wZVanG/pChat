@@ -1,0 +1,36 @@
+https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-14-04
+https://desarrolloweb.com/articulos/ejecutar-aplicacion-nodejs-pm2.html
+--- Conectarse a SSH Amazon EC2 ---
+sudo -i
+ssh -i "/home/vangattack/Geek/zvang/pChat/data/amazonEC2_keypair/VanG.pem" ubuntu@ec2-54-152-162-81.compute-1.amazonaws.com
+
+--- Instalar node y npm ---
+---Buscar archivo ".tar.xz" en https://nodejs.org/en/download/
+
+wget archivo.tar.xz
+sudo apt-get install xz-utils
+tar -C /usr/local --strip-components 1 -xJf archivo.tar.xz
+
+--- Instalar MongoDB  64bits ---
+---https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+
+--- Instalar GRUNT ---
+sudo npm install -g grunt-cli
+
+
+--- Crear carpeta de proyectos en /home
+mkdir Geek
+
+--- Instalar zvang --
+cd Geek
+sudo apt-get install git
+git clone https://wZVanG@bitbucket.org/wZVanG/zvang.git
+
+
+--- Instalar nginx  64bits ---
+sudo apt-get install nginx

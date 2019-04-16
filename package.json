@@ -1,0 +1,27 @@
+{
+  "author": "Walter Chapilliquen",
+  "name": "p-chat",
+  "description": "Piura Chat",
+  "version": "0.0.2",
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": "github:wzVanG/pChat",
+  "scripts": {
+    "start": "node app.js --prod"
+  },
+  "dependencies": {
+    "ws": "~5.1.0",
+    "express": "~4.14.1",
+    "express-session": "~1.15.1",
+    "mongoose": "~5.0.12",
+    "connect-mongo": "~2.0.1",
+    "ejs": "^1.0.0",
+    "uuid": "^3.2.1",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.2",
+    "grunt-contrib-uglify": "^3.3.0",
+    "grunt-contrib-cssmin": "^2.2.1"
+  }
+}

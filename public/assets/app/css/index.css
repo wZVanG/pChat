@@ -1,0 +1,95 @@
+html { height: 100%; }
+body {background: #000; padding:0; margin:0; font-size: 13px; font-family: Arial;    display: flex;
+    flex-direction: column;
+    height: 100%; -webkit-font-smoothing: none; font-smooth:never;}
+body, table {color: #fff}
+input {color:#fff;}
+div, input {box-sizing: border-box;}
+em, a {font-weight: normal; color: rgb(0, 255, 0); font-style: normal}
+piura-chat { display: block; flex: 1 1 auto; display: flex; flex-direction: row;}
+a{color:rgb(0,255,0);border-bottom:1px solid rgb(0,255,0); text-decoration: none}
+ul {list-style-type: none; margin: 0; padding:10px; }
+::selection {background-color: rgba(0, 255, 0, .4); color: #fff;}
+
+.chat-disconnected-wrap {display:none; position:absolute;width:100%;height:100%;position:fixed;top:0;left:0;background:rgba(0,0,0,.7);justify-content:center;flex-direction:column}
+.chat-disconnected-wrap > * {display: flex;justify-content: center}
+body.chat-disconnected .chat-disconnected-wrap {display: flex; z-index:5;}
+
+.cp {cursor: pointer;}
+.row {display: flex; flex-direction: row}
+.row > * {display: flex}
+.col {display: flex; flex-direction: column}
+.col > * {display: flex}
+.flex-end {justify-content: flex-end;}
+.truncate > * {  white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;}
+
+.icon {display: inline-block; vertical-align: middle}
+.icon-online {width:4px; height:4px; background-color: rgb(0, 255, 0); border-radius: 50%}
+
+.scroll::-webkit-scrollbar {
+    width:8px;
+}
+ 
+.scroll::-webkit-scrollbar-track {
+  background-color: rgba(0, 255, 0, .025);  
+}
+ 
+.scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 255, 0, .5);
+}
+.scroll::-webkit-scrollbar-thumb:hover{
+background-color: rgba(0, 255, 0, 1);	
+}
+
+.flex {display: flex}
+.main { display: block;  flex: 1 1 auto;  display: flex; flex-direction: row;}
+.text-right {text-align: right}
+
+.unsupported {text-align:center;margin:auto;height:32px;top:0;bottom:0;left:0;right:0; position:absolute;}
+.chat, .usuarios{border:1px solid rgba(0, 255, 0, .25); transition: all 0.25s ease-in-out; }
+.chat {width:70%; border-right:0;  flex: 1 1 0; display: flex;  flex-direction: column;   position: relative;}
+/*.chat:before{content:'Piura.chat'; position: absolute; right:10px; top:20px; color: rgba(0, 255, 0, 0.2);font-size:30pt;}*/
+.usuarios{width:30%; display: flex; flex-direction: column;}
+.usuarios > * {display: flex}
+.chat-body{ flex: 1 1 auto; overflow: auto; overflow-x: hidden; height: 0; height: calc(100%-50px)}
+.chat-mensaje{border-top:1px solid rgba(0, 255, 0, .5); display: flex; flex-direction: column; height:50px;}
+.chat-mensaje > form {display: flex; flex-direction: row; align-items: center;  padding:0 10px;}
+.chat-mensaje > form > * {display: flex;}
+.chat-author {padding-right: 10px; width: 120px;}
+.chat-mensaje input {background: none; border: 0; outline: none; height: 50px; width:100%}
+
+.chats{position:absolute;bottom:50px;display: flex; flex-direction: row; align-items: flex-end;}
+.chats > * {display: flex; padding:3px 6px;position: relative;margin-right: 10px;
+ border: 1px solid rgba(0, 255, 0, .25); cursor: pointer; background-color: #000; color: rgba(255,255,255,.5);}
+.chats > *.active {padding: 6px; border-top-color: rgba(0,255,0, 1); border-right-color: rgba(0,255,0, 1);
+border-left-color: rgba(0,255,0, 1); cursor:default; color: rgba(255,255,255,1)}
+.chats > *:hover:not(.active) {border-color:rgba(0,255,0, 1); border-bottom-color:rgba(0,255,0, .25); }
+.chats > :first-child {}
+.chats > *:after {position: absolute; width:14px; height:14px; line-height: 14px; border-radius: 50%; content: attr(unread);
+background: rgb(229, 0, 0); top:-8px;font-size: 10px;text-align: center; display: none; padding:1px;color:#fff;z-index: 6}
+.chats > *.has-unread:after{display: block}
+
+.chat-title{margin: 15px}
+ul.chat-mensajes {padding:10px 25px 50px 25px;transition: all 0.25s ease-in-out;}
+
+.chat-tipo-sistema {color: rgb(90, 90, 90);}
+.chat-tipo-quick {color: rgb(90, 90, 90);}
+.chat-code-user_join {}
+
+.chat-tipo-admin .mensaje{color:rgb(255, 0, 255);}
+
+.mensaje{}
+
+/*Somprero*/
+.chat-tipo-sistema pre {font:10px/5px monospace; text-align: center}
+
+.chat-usuarios {flex-direction: column; flex: 1 1 auto; height:calc(100%-30px); overflow: auto}
+.chat-usuarios > ul {padding: 0;}
+.chat-usuarios > ul > li {padding: 2px 10px;}
+.chat-usuarios > ul > li:hover {background-color: rgba(0, 255, 0, .3)}
+
+.controls {height:30px; padding:6px; font-size:10px;}
+
+@media (max-width: 599px){
+	ul.chat-mensajes {padding: 10px; }
+}

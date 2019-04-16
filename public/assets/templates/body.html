@@ -1,0 +1,30 @@
+<div class="chat">
+	<div class="chat-body scroll" chat-body>
+		<ul class="chat-mensajes">
+			<li ng-repeat="linea in Chat.chats[Chat.chat_active_id].mensajes | orderBy:'fecha'" chat-mensaje="linea"></li>
+		</ul>
+	</div>
+	<div class="chats">
+		<div ng-class="{active: id == Chat.chat_active_id, 'has-unread': chat.unread > 0}" ng-repeat="(id, chat) in Chat.chats" ng-click="Chat.selectChat(id)" unread="{{chat.unread}}" chat-tab="chat">
+		</div>
+	</div>
+	<div class="chat-mensaje">
+		<form name="chat_mensaje" ng-if="Chat.usuario.nickname">
+			<div class="chat-author truncate flex-end"><em>{{Chat.usuario.nickname}}:</em></div>
+			<input type="text" id="chat_mensaje_input" ng-model="Chat.mensaje" autofocus="" ng-keydown="Chat.keydown($event)" />
+		</form>
+	</div>
+</div>
+<div class="usuarios">
+	<div class="chat-usuarios scroll"> 
+		<ul ng-if="Chat.chats[Chat.chat_active_id].tipo != CLIENT_CODES.CHAT_TIPOS.usuario">
+			<li ng-repeat="usuario in Chat.chats[Chat.chat_active_id].sala_usuarios | orderBy:'joined'" class="cp" ng-click="Chat.createChat(CLIENT_CODES.CHAT_TIPOS.usuario, usuario._id)">
+				<span class="icon icon-online"></span> <em chat-usuario="usuario._id"></em>
+			</li>
+
+		</ul>
+	</div>
+	<div class="controls ro	w flex-end">
+		<span class="flex-end"><a href="javascript:/wZVanG/" target="_blank" ng-click="about($event)" tabindex="-1">Acerca de...</a></span>
+	</div>
+</div>

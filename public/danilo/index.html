@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html ng-app="TestsSystem">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>Danilo</title>
+	<!--<base href="/danilo/" />-->
+	<script src="./assets/js/jquery.min.js"></script>
+	<script src="./assets/js/angular.min.js"></script>
+	<script src="./assets/js/angular-locale_es-pe.js"></script>
+	<script src="./assets/js/bootstrap.min.js"></script>
+	<script src="./assets/js/functions.js"></script>
+	<script src="./assets/js/script.js?2"></script>
+	<link href="./assets/css/bootstrap.min.css" rel="stylesheet"/>
+
+	<link href="./assets/css/angular-bootstrap-calendar.min.css" rel="stylesheet"/>
+	<link href="./assets/css/angular-ui-select.min.css" rel="stylesheet"/>
+	<link href="./assets/css/select2.min.css" rel="stylesheet"/>
+	<link href="./assets/css/css.css" rel="stylesheet"/>
+
+</head>
+<body ng-controller="MainCtrl" class="ng-cloak">
+	 <div class="container">
+			
+		<div class="row">
+			<div class="col-md-6">
+				<h3>Variables Inversión</h3>
+    			<div class="row">
+    				<div class="col-md-3">
+						<div class="form-group">	
+						    <label for="equipo" class="control-label">Equipo</label>
+					    	<input type="number" class="form-control" id="equipo" ng-model="Tabla.depreciacion.equipo.valor">
+						</div>
+    				</div>
+    				<div class="col-md-3">
+						<div class="form-group">	
+						    <label for="equipo_rep" class="control-label">Rep</label>
+					    	<input type="number" class="form-control" id="equipo_rep" ng-model="Tabla.depreciacion.equipo.rep">
+						</div>
+    				</div>
+    				<div class="col-md-3">
+    					<div class="form-group">	
+						<label for="equipo_valor_real" class="control-label">Valor real</label>
+					    	<input type="number" class="form-control" id="equipo_valor_real" ng-model="Tabla.depreciacion.equipo.valor_real">
+					    </div>
+    				</div>
+    				<div class="col-md-3">
+    					<div class="form-group">	
+							<label for="equipo_anhos" class="control-label">Años</label>
+					    	<input type="number" class="form-control" id="equipo_anhos" ng-model="Tabla.depreciacion.equipo.anhos">
+					    </div>
+    				</div>
+    			</div>
+    			<div class="row">
+    				<div class="col-md-3">
+						<div class="form-group">	
+						    <label for="edificio" class="control-label">Edificio</label>
+					    	<input type="number" class="form-control" id="edificio" ng-model="Tabla.depreciacion.edificio.valor">
+						</div>
+    				</div>
+    				<div class="col-md-3">
+						<div class="form-group">	
+						    <label for="edificio_rep" class="control-label">Rep</label>
+					    	<input type="number" class="form-control" id="edificio_rep" ng-model="Tabla.depreciacion.edificio.rep">
+						</div>
+    				</div>
+    				<div class="col-md-3">
+    					<div class="form-group">	
+						<label for="edificio_valor_real" class="control-label">Valor real</label>
+					    	<input type="number" class="form-control" id="edificio_valor_real" ng-model="Tabla.depreciacion.edificio.valor_real">
+					    </div>
+    				</div>
+    				<div class="col-md-3">
+    					<div class="form-group">	
+							<label for="edificio_anhos" class="control-label">Años</label>
+					    	<input type="number" class="form-control" id="edificio_anhos" ng-model="Tabla.depreciacion.edificio.anhos">
+					    </div>
+    				</div>
+    			</div>
+    			<div class="row">
+    				<div class="col-md-3">
+						<div class="form-group">	
+						    <label for="terreno" class="control-label">Terreno</label>
+					    	<input type="number" class="form-control" id="terreno" ng-model="Tabla.depreciacion.terreno.valor">
+						</div>
+    				</div>
+    				<div class="col-md-3">
+						<div class="form-group">	
+						    <label for="terreno_rep" class="control-label">Rep</label>
+					    	<input type="number" class="form-control" id="terreno_rep" ng-model="Tabla.depreciacion.terreno.rep">
+						</div>
+    				</div>
+    				<div class="col-md-3">
+    					<div class="form-group">	
+						<label for="terreno_valor_real" class="control-label">Valor real</label>
+					    	<input type="number" class="form-control" id="terreno_valor_real" ng-model="Tabla.depreciacion.terreno.valor_real">
+					    </div>
+    				</div>
+    				<div class="col-md-3">
+    					<div class="form-group">	
+							<label for="terreno_anhos" class="control-label">Años</label>
+					    	<input type="number" class="form-control" id="terreno_anhos" ng-model="Tabla.depreciacion.terreno.anhos">
+					    </div>
+    				</div>
+    			</div>
+			</div>
+   
+			<div class="col-md-6">
+
+				<h3>Depreciación</h3>
+
+		    	<div class="row">
+
+		    		<table class="table table-striped">
+
+
+		    			<tr>
+		    				<th></th>
+		    				<th ng-repeat="anho in Tabla.variables.vida_proyecto_rango">{{$index + 1}}</th>
+		    				<th>VL</th>
+		    				<th>VM</th>
+		    			</tr>
+
+		    			<tr ng-repeat="fila in Tabla.depreciacion_stats">
+		    				<td>{{fila.nombre}}</td>
+		    				<td ng-repeat="celda in fila.celdas">
+		    					{{celda.value}}
+		    				</td>
+		    			</tr>
+		  
+					</table>
+
+		    	</div>
+			</div>
+
+
+    	</div>
+ 
+    	<div class="row">
+			
+    		<div class="col-md-12">
+    			<h3>Variables CF</h3>
+    			<div class="row">
+    				<div class="col-md-3">
+						  <div class="form-group">
+						    <label for="vida_proyecto">Vida proyecto</label>
+						    <input type="number" class="form-control" id="vida_proyecto" ng-model="Tabla.variables.vida_proyecto" placeholder="Pr">
+						  </div>
+    				</div>
+    				<div class="col-md-3">
+						  <div class="form-group">
+						    <label for="capital_trabajo">Capital de Trabajo</label>
+						    <input type="number" class="form-control" id="capital_trabajo" ng-model="Tabla.variables.capital_trabajo" placeholder="CT">
+						  </div>
+    				</div>
+    				<div class="col-md-3">
+
+						  <div class="form-group">
+						    <label for="precio">Precio</label>
+						    <input type="number" class="form-control" id="precio" ng-model="Tabla.variables.precio" placeholder="Pr">
+						  </div>
+
+    				</div>
+    				<div class="col-md-3">
+							<div class="form-group">
+						    <label for="cantidad">Cantidad</label>
+						    <input type="number" class="form-control" id="cantidad" ng-model="Tabla.variables.cantidad" placeholder="Q">
+						  </div>
+    				</div>
+    			</div>
+    			<div class="row">
+
+    				<div class="col-md-3">
+
+							<div class="form-group">
+						    <label for="costo_variable">Costo Variable</label>
+						    <input type="number" class="form-control" id="costo_variable" ng-model="Tabla.variables.costo_variable" placeholder="CV">
+						  </div>
+
+					</div>
+
+					<div class="col-md-3">
+							<div class="form-group">
+						    <label for="costo_fijo">Costo Fijo</label>
+						    <input type="number" class="form-control" id="costo_fijo" ng-model="Tabla.variables.costo_fijo" placeholder="CF">
+						  </div>
+					</div>
+
+    				<div class="col-md-3">
+
+							<div class="form-group">
+						    <label for="isr">ISR</label>
+						    <input type="number" class="form-control" id="isr" step="0.1" ng-model="Tabla.variables.isr" placeholder="ISR">
+						  </div>
+							
+					</div>
+
+    			</div>
+
+    		</div>
+
+		</div>
+
+    	<p></p>
+
+    	<div class="row">
+			<div class="col-md-12">
+    		<table class="table table-striped table-bordered table-responsive">
+
+    			<tr>
+    				<th></th>
+    				<th ng-repeat="anho in Tabla.variables.vida_proyecto_rango">
+    					CF{{anho + 1}}		
+    				</th>
+    			</tr>
+
+    			<tr ng-repeat="fila in Tabla.cf_stats">
+    				<td>{{fila.nombre}}</td>
+    				<td ng-repeat="celda in fila.celdas">
+    					{{celda.value}}
+    				</td>
+    			</tr>
+
+
+    			<tr>
+    				<td colspan="{{Tabla.variables.vida_proyecto + 1}}">
+
+    			<div class="text-center van-content">
+
+    				<kbd>
+    					<big>TIR</big> = <span class=" first" > CF0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    					<span ng-repeat="anho in Tabla.variables.vida_proyecto_rango" class=""  cf2="">
+    					+ CF{{anho+1}}(1 + i)<sup>{{(anho+1)*-1}}</sup>
+    					</span>
+    					= 0
+    				</kbd>
+    				&nbsp; 
+    				<big>TIR =  {{Tabla.variables.i | number:2}}</big>
+
+    				<br />
+<!--
+    				<div class="row">
+						<div class="col-md-3 col-md-offset-4">
+							<form class="form-horizontal">
+						  	<div class="form-group">
+						    	<label for="variables_i" class="col-sm-6 ontrol-label">Indique el valor <big>i</big></label>
+						    	<div class="col-sm-6">
+						    	<input type="number" class="form-control" step="0.1" id="variables_i" ng-model="Tabla.variables.i_format">
+						    	</div>
+						  	</div>
+						  	</form>
+						</div>
+					</div>
+-->
+    				<kbd>
+    					<big>VAN</big> = <span class="van_value first" cf="{{Tabla.cfs[0] | number: 2}}"> CF0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    					<span ng-repeat="anho in Tabla.variables.vida_proyecto_rango" class="van_value" cf="{{Tabla.cfs[$index+1] | number: 2}}" cf2="">
+    					+ CF{{anho+1}}(1 + i)<sup>{{(anho+1)*-1}}</sup>
+    					</span>
+    				</kbd>
+    				&nbsp; = 
+    				<big>{{Tabla.VAN | number:2}}</big>
+    			</div>
+
+    				</td>
+    			</tr>
+  
+			</table>
+			</div>
+
+    	</div>
+
+    	<div class="row">
+    		<div><h3>Préstamo</h3></div>
+    	</div>
+    	<div class="row">
+    		
+    		<div class="col-md-2">
+					  <div class="form-group">
+					    <label for="cantidad">Cantidad</label>
+					    <input type="number" class="form-control" id="cantidad" ng-model="Tabla.prestamo.cantidad">
+					  </div>
+
+				  <div class="form-group">
+				    <label for="prestamo_anhos">Años</label>
+				    <input type="number" class="form-control" id="prestamo_anhos" ng-model="Tabla.prestamo.anhos">
+				  </div>
+    			</div>
+
+			<div class="col-md-2">
+				  <div class="form-group">
+				    <label for="interes">Interés</label>
+				    <input type="number" class="form-control" step="0.1" id="interes" ng-model="Tabla.prestamo.interes">
+				  </div>
+    		</div>
+
+
+			<div class="col-md-8">
+		    	<div class="row">
+
+		    		<table class="table table-striped">
+
+		    			<tr>
+		    				<th></th><th>SI</th><th>I</th><th>C</th><th>T</th>
+		    			</tr>
+
+		    			<tr ng-repeat="saldo in Tabla.saldos">
+		    				<td>{{$index + 1}}</td><td>{{saldo.debe | soles}}</td><td>{{saldo.interes | soles}}</td><td>{{saldo.c | soles}}</td><td>{{(saldo.interes + saldo.c) | soles}}</td>
+		    			</tr>
+		  
+					</table>
+
+		    	</div>
+			</div>
+
+    	</div>
+
+</body>
+</html>

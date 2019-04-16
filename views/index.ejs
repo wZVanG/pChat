@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="PiuraChat" ng-strict-di>
+<head>
+	<title><%-page.title%></title>
+	<meta charset="utf-8" />
+	<% if(page.production){ %><link rel="stylesheet" type="text/css" href="<%- page.hashAsset %>.min.css">
+	<% }else{ %><link rel="stylesheet" type="text/css" href="assets/app/css/index.css">
+	<% } %><meta name=viewport content="initial-scale=1,maximum-scale=1">
+</head>
+<body ng-controller="IndexController" ng-class="{'chat-disconnected': Chat.disconnected === true}">
+<% if(page.production){ %><script src="<%- page.hashAsset %>.min.js"></script>
+<% }else{ %><script src="assets/app/js/vendor/angular.js"></script>
+<script src="assets/app/js/angular-sanitize.js"></script>
+<script src="assets/app/js/utils.js"></script>
+<script src="assets/app/js/codes.js"></script>
+<% } %><script src="assets/pChat.js"></script>
+<piura-chat ng-cloak ng-if="supported" class="main"></piura-chat>
+<div class="chat-disconnected-wrap"><em>Conectando...</em></div>
+<div ng-if="!supported" class="unsupported" ng-cloak><em>Tu navegador no es compatible para esta página, actualiza a la última versión de <a href="https://www.google.com/chrome/" target="_blank">Chrome!</a></em></div>
+</body>
+</html>

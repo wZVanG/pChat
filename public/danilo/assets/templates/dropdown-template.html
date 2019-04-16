@@ -1,0 +1,11 @@
+<div class="btn-group" dropdown uib-dropdown>
+	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button"><span ng-bind-html="itemList[ngModel].name"></span> <span class="caret"></span></button>
+
+		<ul class="dropdown-menu" role="menu">
+			<li ng-class="{active: ngModel == defaultItem.id}"><a href="" ng-click="select(defaultItem)" ng-bind="defaultItem.name"></a></li>
+			<li ng-repeat="item in itemList track by $index" ng-class="{active: ngModel == item.id}">
+				<a href="" ng-bind-html="item.name" ng-click="select(item)"></a>
+			</li> 
+		</ul>
+	
+</div>
